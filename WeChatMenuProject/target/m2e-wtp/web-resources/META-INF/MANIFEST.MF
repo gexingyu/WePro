@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: WeChatMenuProject
+Implementation-Version: 1.0.0
+Built-By: gexingyu
+Implementation-Vendor-Id: WeChatMenuProject
+Build-Jdk: 1.8.0_112
+Implementation-URL: http://projects.spring.io/spring-boot/WeChatMenuPr
+ oject/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
