@@ -1,5 +1,9 @@
-com/wechat/app/util/HttpClientUtil.class
-com/wechat/app/controller/indexController.class
-com/wechat/app/util/SSLClient$1.class
-com/wechat/app/Application.class
-com/wechat/app/util/SSLClient.class
+com\wechat\app\dto\TextMeaasge.class
+com\wechat\app\Application.class
+com\wechat\app\util\MessageUtil.class
+com\wechat\app\controller\indexController.class
+com\wechat\app\util\SSLClient.class
+com\wechat\app\controller\WeixinServlet.class
+com\wechat\app\util\HttpClientUtil.class
+com\wechat\app\util\CheckUtil.class
+com\wechat\app\util\SSLClient$1.class
