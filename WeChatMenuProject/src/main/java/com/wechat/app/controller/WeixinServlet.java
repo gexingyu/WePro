@@ -11,37 +11,52 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.dom4j.DocumentException;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wechat.app.dto.TextMeaasge;
 import com.wechat.app.util.CheckUtil;
 import com.wechat.app.util.MessageUtil;
+import com.wechat.app.util.SignUtil;
 /**
  * 微信消息的接收和响应
  */
-public class WeixinServlet extends HttpServlet {
+@Controller
+public class WeixinServlet  {
  
-    /**
-     * 接收微信服务器发送的4个参数并返回echostr
+	/**
+     * 确认消息来自微信服务器
+     * @param request
+     * @return
      */
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
- 
-        // 接收微信服务器以Get请求发送的4个参数
+    @RequestMapping("/check")
+    @ResponseBody
+    String check(HttpServletRequest request) {
+
+        // 微信加密签名
         String signature = request.getParameter("signature");
+        // 时间戳
         String timestamp = request.getParameter("timestamp");
+        // 随机数
         String nonce = request.getParameter("nonce");
+        // 随机字符串
         String echostr = request.getParameter("echostr");
-         
-        PrintWriter out = response.getWriter();
-        if (CheckUtil.checkSignature(signature, timestamp, nonce)) {
-            out.print(echostr);        // 校验通过，原样返回echostr参数内容
+        // 通过检验signature对请求进行校验，若校验成功则原样返回echostr，表示接入成功，否则接入失败
+        if (SignUtil.checkSignature(signature, timestamp, nonce)) {
+            System.out.print("echostr="+echostr);
+            return echostr;
+        }else{
+            return "fail";
         }
     }
+
  
     /**
      * 接收并处理微信客户端发送的请求
      */
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
+	@RequestMapping("/fromWechat")
+    public void fromWechat(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
  
         request.setCharacterEncoding("utf-8");
