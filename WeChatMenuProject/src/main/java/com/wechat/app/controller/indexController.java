@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.wechat.app.util.SSLClient;
+import com.wechat.app.util.TwoDimensionCode;
 
 @Controller
 public class indexController {
@@ -19,6 +20,8 @@ public class indexController {
 	public String index(HttpServletRequest request,HttpServletResponse response){
 		String result= this.doGet("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx26ee1c05ed21b642&secret=d7f2fd2a58993f69f9c786e784a2053e", null);
 		request.setAttribute("index", result);
+		String url = TwoDimensionCode.produce();
+		request.setAttribute("url", url);
 		return "index";
 	}
 	/** 
