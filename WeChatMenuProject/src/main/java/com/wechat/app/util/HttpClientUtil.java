@@ -1,4 +1,4 @@
-package com.wechat.app.util;
+/*package com.wechat.app.util;
 
 import java.util.ArrayList;  
 import java.util.Iterator;  
@@ -13,9 +13,9 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;  
 import org.apache.http.message.BasicNameValuePair;  
 import org.apache.http.util.EntityUtils;  
-/* 
+ 
  * 利用HttpClient进行post请求的工具类 
- */  
+   
 public class HttpClientUtil {  
     public String doPost(String url,Map<String,String> map,String charset){  
         HttpClient httpClient = null;  
@@ -48,3 +48,4 @@ public class HttpClientUtil {
         return result;  
     }  
 }  
+*/

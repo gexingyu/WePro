@@ -1,4 +1,4 @@
-package com.wechat.app.util;
+/*package com.wechat.app.util;
  
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,14 +16,14 @@ import org.dom4j.io.SAXReader;
 import com.thoughtworks.xstream.XStream;
 import com.wechat.app.dto.TextMeaasge;
  
-/**
+*//**
  * 实现消息的格式转换(Map类型和XML的互转)
- */
+ *//*
 public class MessageUtil {
  
-    /**
+    *//**
      * 将XML转换成Map集合
-     */
+     *//*
     public static Map<String, String>xmlToMap(HttpServletRequest request) throws IOException, DocumentException{
          
         Map<String, String> map = new HashMap<String, String>();
@@ -42,9 +42,9 @@ public class MessageUtil {
         return map;
     }
      
-    /**
+    *//**
      * 将文本消息对象转换成XML
-     */
+     *//*
     public static String textMessageToXML(TextMeaasge textMessage){
          
         XStream xstream = new XStream();              // 使用XStream将实体类的实例转换成xml格式    
@@ -53,4 +53,4 @@ public class MessageUtil {
          
     }
      
-}
+}*/

@@ -1,67 +1,63 @@
-package com.wechat.app.util;
+/*package com.wechat.app.util;
 
-import java.awt.Color;  
-import java.awt.Graphics2D;  
-import java.awt.image.BufferedImage;  
-import java.io.File;  
-import java.io.IOException;  
-import java.io.InputStream;  
-import java.io.OutputStream;  
-  
-import javax.imageio.ImageIO;  
-  
-import jp.sourceforge.qrcode.QRCodeDecoder;  
-import jp.sourceforge.qrcode.exception.DecodingFailedException;  
-  
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.OutputStream;
+
+import javax.imageio.ImageIO;
+
 import com.swetake.util.Qrcode;  
   
 public class TwoDimensionCode {  
       
-    /** 
+    *//** 
      * 生成二维码(QRCode)图片 
      * @param content 存储内容 
      * @param imgPath 图片路径 
-     */  
+     *//*  
     public void encoderQRCode(String content, String imgPath) {  
         this.encoderQRCode(content, imgPath, "png", 7);  
     }  
       
-    /** 
+    *//** 
      * 生成二维码(QRCode)图片 
      * @param content 存储内容 
      * @param output 输出流 
-     */  
+     *//*  
     public void encoderQRCode(String content, OutputStream output) {  
         this.encoderQRCode(content, output, "png", 7);  
     }  
       
-    /** 
+    *//** 
      * 生成二维码(QRCode)图片 
      * @param content 存储内容 
      * @param imgPath 图片路径 
      * @param imgType 图片类型 
-     */  
+     *//*  
     public void encoderQRCode(String content, String imgPath, String imgType) {  
         this.encoderQRCode(content, imgPath, imgType, 7);  
     }  
       
-    /** 
+    *//** 
      * 生成二维码(QRCode)图片 
      * @param content 存储内容 
      * @param output 输出流 
      * @param imgType 图片类型 
-     */  
+     *//*  
     public void encoderQRCode(String content, OutputStream output, String imgType) {  
         this.encoderQRCode(content, output, imgType, 7);  
     }  
   
-    /** 
+    *//** 
      * 生成二维码(QRCode)图片 
      * @param content 存储内容 
      * @param imgPath 图片路径 
      * @param imgType 图片类型 
      * @param size 二维码尺寸 
-     */  
+     *//*  
     public void encoderQRCode(String content, String imgPath, String imgType, int size) {  
         try {  
             BufferedImage bufImg = this.qRCodeCommon(content, imgType, size);  
@@ -74,13 +70,13 @@ public class TwoDimensionCode {
         }  
     }  
   
-    /** 
+    *//** 
      * 生成二维码(QRCode)图片 
      * @param content 存储内容 
      * @param output 输出流 
      * @param imgType 图片类型 
      * @param size 二维码尺寸 
-     */  
+     *//*  
     public void encoderQRCode(String content, OutputStream output, String imgType, int size) {  
         try {  
             BufferedImage bufImg = this.qRCodeCommon(content, imgType, size);  
@@ -91,13 +87,13 @@ public class TwoDimensionCode {
         }  
     }  
       
-    /** 
+    *//** 
      * 生成二维码(QRCode)图片的公共方法 
      * @param content 存储内容 
      * @param imgType 图片类型 
      * @param size 二维码尺寸 
      * @return 
-     */  
+     *//*  
     private BufferedImage qRCodeCommon(String content, String imgType, int size) {  
         BufferedImage bufImg = null;  
         try {  
@@ -141,12 +137,47 @@ public class TwoDimensionCode {
         }  
         return bufImg;  
     }  
-      
-    /** 
+    *//**
+     * 生产二维码io
+     * @param url
+     * @param width
+     * @param height
+     * @return
+     * @throws Exception
+     *//*
+    private static BufferedImage createQrCodeBuff(String url, int width, int height) throws Exception {
+		Qrcode qrcode = new Qrcode();
+		qrcode.setQrcodeErrorCorrect('M');
+		qrcode.setQrcodeEncodeMode('B');
+		qrcode.setQrcodeVersion(7);
+
+		byte[] bstr = url.getBytes("UTF-8");
+		BufferedImage bi = new BufferedImage(width, height, 1);
+		Graphics2D g = bi.createGraphics();
+		g.setBackground(Color.WHITE);
+		g.clearRect(0, 0, width, height);
+		g.setColor(Color.BLACK);
+		if ((bstr.length > 0) && (bstr.length < 123)) {
+			boolean[][] b= qrcode.calQrcode(bstr);
+			for (int i = 0; i < b.length; ++i) {
+				for (int j = 0; j < b.length; ++j) {
+					if (b[j][i]) {
+						g.fillRect((int) (width / 139.0D * (j * 3 + 2)), (int) (height / 139.0D * (i * 3 + 2)),
+								(int) (width / 139.0D * 3.0D), (int) (height / 139.0D * 3.0D));
+					}
+				}
+			}
+		}
+
+		g.dispose();
+		bi.flush();
+		return bi;
+	}
+    *//** 
      * 解析二维码（QRCode） 
      * @param imgPath 图片路径 
      * @return 
-     */  
+     *//*  
     public  String decoderQRCode(String imgPath) {  
         // QRCode 二维码图片的文件  
         File imageFile = new File(imgPath);  
@@ -166,11 +197,11 @@ public class TwoDimensionCode {
         return content;  
     }  
       
-    /** 
+    *//** 
      * 解析二维码（QRCode） 
      * @param input 输入流 
      * @return 
-     */  
+     *//*  
     public  String decoderQRCode(InputStream input) {  
         BufferedImage bufImg = null;  
         String content = null;  
@@ -187,35 +218,13 @@ public class TwoDimensionCode {
         }  
         return content;  
     }  
-    public static String  produce(){
-    	String imgPath = "src/main/resources/my/Michael_QRCode.png";  
-        String encoderContent = "http://localhost:8080/yyzz.jpg";  
-        TwoDimensionCode handler = new TwoDimensionCode();  
-        handler.encoderQRCode(encoderContent, imgPath, "png");  
-        System.out.println("========encoder success");  
-        String decoderContent = handler.decoderQRCode(imgPath);  
-        System.out.println("解析结果如下：");  
-        System.out.println(decoderContent);  
+    public static OutputStream  produce() throws Exception{
+        String encoderContent = "http://www.baidu.com";  
+        BufferedImage bi =  createQrCodeBuff(encoderContent,139, 139);
+        OutputStream outputStream = new ByteArrayOutputStream();
+        ImageIO.write(bi, "png", outputStream);
         System.out.println("========decoder success!!!"); 
-        return "Michael_QRCode.png";
+        return outputStream;
     }
-    public static void main(String[] args) {  
-        String imgPath = "src/main/resources/my/Michael_QRCode.png";  
-        String encoderContent = "http://ule.com";  
-        TwoDimensionCode handler = new TwoDimensionCode();  
-        handler.encoderQRCode(encoderContent, imgPath, "png");  
-//      try {  
-//          OutputStream output = new FileOutputStream(imgPath);  
-//          handler.encoderQRCode(content, output);  
-//      } catch (Exception e) {  
-//          e.printStackTrace();  
-//      }  
-        System.out.println("========encoder success");  
-          
-          
-        String decoderContent = handler.decoderQRCode(imgPath);  
-        System.out.println("解析结果如下：");  
-        System.out.println(decoderContent);  
-        System.out.println("========decoder success!!!");  
-    }  
 }  
+*/

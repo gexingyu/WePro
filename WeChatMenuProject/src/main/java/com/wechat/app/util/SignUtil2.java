@@ -1,4 +1,4 @@
-package com.wechat.app.util;
+/*package com.wechat.app.util;
 
 import java.util.Arrays;
 
@@ -29,13 +29,13 @@ public class SignUtil2 {
     }
  
     public static void main(String[] args) {
-          /*
+          
         signature=95205b721b95f72a1b82b6551c3a40e658e18ceb
         timestamp=1489498977
         nonce=1125364772
-        */
+        
         SignUtil2.checkSignature("95205b721b95f72a1b82b6551c3a40e658e18ceb","1489498977","1125364772");
     }
  
 }
- 
+ */

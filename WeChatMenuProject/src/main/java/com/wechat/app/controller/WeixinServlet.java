@@ -1,23 +1,11 @@
 package com.wechat.app.controller;
  
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Date;
-import java.util.Map;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org.dom4j.DocumentException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.wechat.app.dto.TextMeaasge;
-import com.wechat.app.util.CheckUtil;
-import com.wechat.app.util.MessageUtil;
 import com.wechat.app.util.SignUtil;
 /**
  * 微信消息的接收和响应
@@ -55,7 +43,7 @@ public class WeixinServlet  {
     /**
      * 接收并处理微信客户端发送的请求
      */
-	@RequestMapping("/fromWechat")
+	/*@RequestMapping("/fromWechat")
     public void fromWechat(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
  
@@ -86,6 +74,6 @@ public class WeixinServlet  {
         }finally{
             out.close();
         }
-    }
+    }*/
  
 }

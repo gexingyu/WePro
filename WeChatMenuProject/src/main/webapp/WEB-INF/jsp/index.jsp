@@ -11,7 +11,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${index}
-	<img alt="二维码" src="${url }">
+	<img alt="二维码" src="<%=basePath %>/erweima">
 </body>
 </html>

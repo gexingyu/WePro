@@ -1,4 +1,4 @@
-package com.wechat.app.util;
+/*package com.wechat.app.util;
 
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
@@ -36,3 +36,4 @@ public class SSLClient extends DefaultHttpClient{
         sr.register(new Scheme("https", 443, ssf));  
     }  
 }  
+*/
