@@ -11,6 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<img alt="二维码" src="<%=basePath %>/erweima">
+	
+	<img alt="二维码" src="http:<%=basePath %>/erweima">
 </body>
 </html>
