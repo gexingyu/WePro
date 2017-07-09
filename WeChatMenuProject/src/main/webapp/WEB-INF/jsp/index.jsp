@@ -11,7 +11,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
-	<img alt="二维码" src="http:<%=basePath %>/erweima">
+	<h1>index</h1>
+	<img alt="二维码" src="http:<%=basePath %>/erweima"><br>
+	<h1>nickName:${snsUserInfo.nickname} <br></h1>
+	<h1>city:${snsUserInfo.city} <br></h1>
+	<h1>openId:${snsUserInfo.openId} <br></h1>
 </body>
 </html>

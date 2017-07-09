@@ -48,7 +48,7 @@ public class indexController {
 		String appSecret = "d7f2fd2a58993f69f9c786e784a2053e";
 		String url ="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+appid+"&secret="+appSecret+"";  
 		String backData=sendGet(url, "utf-8", 10000);
-		//getUserInfo(backData,);
+		//getUserInfo(backData);
 		
 		
 		return backData;
@@ -73,7 +73,7 @@ public class indexController {
 		// request.setAttribute("index", result);
 		OutputStream os = null;
 		//String directUrl = this.urlEncodeUTF8("http://gexingyu002.ngrok.cc/getinfo");
-		String directUrl = "http://gexingyu002.ngrok.cc/check";
+		String directUrl = "http://192.168.1.103:8080/gotoIndex";
 		String appid = "wx26ee1c05ed21b642";
 		String appSecret = "d7f2fd2a58993f69f9c786e784a2053e";
 		String requestUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?"
@@ -99,7 +99,7 @@ public class indexController {
 		Qrcode qrcode = new Qrcode();
 		qrcode.setQrcodeErrorCorrect('M');
 		qrcode.setQrcodeEncodeMode('B');
-		qrcode.setQrcodeVersion(7);
+		qrcode.setQrcodeVersion(20);
 
 		byte[] bstr = url.getBytes("UTF-8");
 		BufferedImage bi = new BufferedImage(width, height, 1);
@@ -107,7 +107,7 @@ public class indexController {
 		g.setBackground(Color.WHITE);
 		g.clearRect(0, 0, width, height);
 		g.setColor(Color.BLACK);
-		if ((bstr.length > 0) && (bstr.length < 123)) {
+		if ((bstr.length > 0) && (bstr.length < 300)) {
 			boolean[][] b = qrcode.calQrcode(bstr);
 			for (int i = 0; i < b.length; ++i) {
 				for (int j = 0; j < b.length; ++j) {
@@ -125,7 +125,7 @@ public class indexController {
 	}
 
 	private static OutputStream produce(String encoderContent) throws Exception {
-		BufferedImage bi = createQrCodeBuff(encoderContent, 139, 139);
+		BufferedImage bi = createQrCodeBuff(encoderContent, 200, 200);
 		OutputStream outputStream = new ByteArrayOutputStream();
 		ImageIO.write(bi, "png", outputStream);
 		System.out.println("========decoder success!!!");

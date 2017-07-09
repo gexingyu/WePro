@@ -91,4 +91,11 @@ public class SNSUserInfo {
     public void setPrivilegeList(List<String> privilegeList) {
         this.privilegeList = privilegeList;
     }
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "openId:"+this.getOpenId()+" city:"+this.getCity()+" nickName:"+this.getNickname();
+	}
+    
 }
